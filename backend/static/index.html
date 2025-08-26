@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>KRNL Onboarding Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="/static/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>KRNL Onboarding Dashboard</h1>
+
+    <!-- New Employee -->
+    <section class="card">
+      <h2>New Employee</h2>
+      <form id="frmNew" class="form-grid">
+        <label>Name<input name="name" required></label>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Role<input name="role" required></label>
+        <label>Department<input name="department"></label>
+        <label>Start Date<input name="start_date" type="date" required></label>
+        <div class="form-actions">
+          <button id="btnAdd" class="btn-primary" type="submit">Add</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Upload CSV -->
+    <section class="card">
+      <h2>Upload CSV</h2>
+      <div class="upload-row">
+        <input id="csvFile" type="file" accept=".csv">
+        <button id="btnUploadCsv" class="btn-secondary" type="button">Upload</button>
+        <a class="btn-secondary" href="/api/employees/sample_csv">Download Sample</a>
+      </div>
+      <p class="hint">
+        Required: <code>name,email,role,start_date</code> | Optional: <code>department</code> |
+        Date: <code>YYYY-MM-DD</code> / <code>DD/MM/YYYY</code> / <code>MM/DD/YYYY</code>
+      </p>
+    </section>
+
+    <!-- Employees table -->
+    <section class="card">
+      <h2>Employees</h2>
+      <div class="table-wrap">
+        <table id="tblEmployees" class="table">
+          <thead>
+            <tr>
+              <th>ID</th><th>Name</th><th>Email</th><th>Role</th>
+              <th>Department</th><th>Start Date</th><th>Status</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Logs panel (อยู่หน้าเดียว, ไม่ล้นจอ) -->
+    <section id="logsPanel" class="card logs-card" style="display:none;">
+      <div class="panel-head">
+        <h2>Logs</h2>
+        <button id="btnCloseLogs" class="btn-secondary" type="button">Close</button>
+      </div>
+      <pre id="logsBox" class="log-box"></pre>
+    </section>
+  </div>
+
+  <script defer src="/static/app.js"></script>
+</body>
+</html>

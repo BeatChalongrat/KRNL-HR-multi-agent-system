@@ -1,0 +1,17 @@
+﻿# Secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Logs / DB / build
+*.log
+*.sqlite*
+*.db
+dist/
+build/
+node_modules/

@@ -1,0 +1,24 @@
+{
+  "name": "SchedulerAgent",
+  "version": "1.0.0",
+  "description": "Creates Day-1 orientation calendar events for new employees.",
+  "capabilities": {
+    "create_event": {
+      "inputs": {
+        "employee_id": "integer",
+        "start_date": "YYYY-MM-DD",
+        "attendees": "list of emails"
+      },
+      "outputs": {
+        "calendar_event_id": "integer",
+        "event": "JSON event object"
+      }
+    }
+  },
+  "a2a": {
+    "called_by": [
+      "AccountAgent"
+    ],
+    "notes": "AccountAgent invokes SchedulerAgent directly post account creation."
+  }
+}
